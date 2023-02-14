@@ -10,16 +10,17 @@
         <div class="row">
             <div class="informationcontent">
                 <h3>Search Book</h3>
-                <form>
+                <form action="{{route('getSearchBook')}}" method="GET">
+                  @csrf()
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Book Name" style="width:100%">
+                                <input type="text" class="form-control" name="bookname" placeholder="Book Name" style="width:100%">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Author Name" style="width:100%">
+                                <input type="text" class="form-control" name="bookauthor" placeholder="Author Name" style="width:100%">
                             </div>
                         </div>
                         <div class="col-md-4">

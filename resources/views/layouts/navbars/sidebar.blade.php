@@ -17,13 +17,13 @@
             <p>{{ __('Dashboard') }}</p>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
+      <li class="nav-item{{ $activePage == 'book' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('getManageBook') }}">
           <i class="material-icons">Book</i>
             <p>{{ __('Book') }}</p>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
+      <li class="nav-item{{ $activePage == 'faq' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('getManageFAQ') }}">
           <i class="material-icons">FAQ</i>
             <p>{{ __('FAQ') }}</p>

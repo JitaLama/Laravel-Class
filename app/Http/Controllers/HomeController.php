@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Faq;
+use App\Models\Assign;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -104,8 +105,11 @@ class HomeController extends Controller
         }
         return redirect()->back();
     }
-    public function getAssignBook(){
-        return view('admin.book.assignbook');
+    public function getAssignBook($assign_book){
+        $data=[
+            'book'=>Book::where('id', $assign_book)->limit(1)->first()
+        ];
+        return view('admin.book.assignbook', $data);
     }
     
     //FAQ functions
@@ -153,4 +157,17 @@ class HomeController extends Controller
         ];
         return view('admin.FAQ.editfaq',$data);
     }
+    public function postAddAssignBook(Request $request){
+        $assign = New Assign;
+        $assign->bookid = $request->input('bookid');
+        $assign->studentid = $request->input('studentid');
+        $assign->name = $request->input('studentname');
+        $assign->class = $request->input('studentclass');
+        $assign->mobile = $request->input('studentmobile');
+        $assign->issue_date = date('Y-m-d');
+        $assign->recom_returndate = $request->input('bookreturndate');
+        $assign->save();
+        return redirect()->back();
+    }
+
 }

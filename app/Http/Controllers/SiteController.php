@@ -49,4 +49,14 @@ class SiteController extends Controller
         }
         
     }
+    public function getSearchBook(Request $request){
+        $name = $request->input('bookname');
+        $author = $request->input('bookauthor');
+        $data =[
+            'searchresults' => Book::where('name', $name)->where('author', $author)->get()
+        ];
+        // dd($data['searchresult']);
+        return view('site.search', $data);
+        
+    }
 }
